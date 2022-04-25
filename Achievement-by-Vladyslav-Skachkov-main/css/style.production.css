@@ -203,9 +203,7 @@ Secondary Color (Orange): #e0b354;
 
 /*Grid on Work page*/
 .grid {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 10px 1fr 10px 1fr;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
   margin: 5px;
@@ -243,6 +241,7 @@ Secondary Color (Orange): #e0b354;
       min-height: auto;
       margin: 0;
       grid-row: 2 / span 3;
+      grid-gap: 0;
     }
 
   .about--illustration {
@@ -344,21 +343,22 @@ Secondary Color (Orange): #e0b354;
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
   }
+  .grid__item, .grid__item__1, .grid__item__2, .grid__item:last-child{
+    grid-column: unset;
+    grid-row: unset;
+  }
+
 }
+
 
 @media all and (min-width: 500px) and (max-width: 750px) {
   .grid {
+    grid-gap: 10px;
     -ms-grid-columns: 1fr 10px 1fr;
     grid-template-columns: 1fr 1fr;
   }
-}
-
-@media all and (max-width: 750px) {
-  .grid {
-    grid-gap: 10px;
-  }
   .grid__item:last-child {
-    grid-column: auto / auto;
+    grid-column: 1 / span 2;
     grid-row: auto / auto;
   }
   h1 {
